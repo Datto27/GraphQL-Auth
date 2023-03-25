@@ -1,8 +1,6 @@
 
 export const users = [
-  { id:"1", username:"test", password:"pass" }
+  { id:"1", username:"test", password:"test", loginCount:1 }
 ]
 
-export const refreshTokens = [
-  
-]
+export const refreshTokens = []

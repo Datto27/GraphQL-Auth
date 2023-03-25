@@ -13,7 +13,7 @@ export const generateRToken = (payload) => {
   const token = jwt.sign(
     payload, 
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: "30d" } 
+    { expiresIn: "365d" } 
   )
   return token
 }

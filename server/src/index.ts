@@ -10,7 +10,7 @@ const PORT = 8080
 
 const GraphQLServer = new ApolloServer({
   resolvers: [userResolvers],
-  typeDefs: [userTypeDefs]
+  typeDefs: [userTypeDefs],
 });
 
 (async function start () {

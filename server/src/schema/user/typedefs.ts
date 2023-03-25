@@ -5,11 +5,13 @@ export const userTypeDefs = `#graphql
     id: ID
     username: String!
     password: String!
+    loginCount: Int
   }
 
   type AuthRes {
     id: ID
     username: String
+    loginCount: String
     accessToken: String
     refreshToken: String
   }
@@ -17,6 +19,7 @@ export const userTypeDefs = `#graphql
   input UserInput {
     username: String!
     password: String!
+    loginCount: Int = 0
   }
 
   type Query {
