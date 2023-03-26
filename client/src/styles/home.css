@@ -5,12 +5,15 @@ h1, h2, h3 {
 .home-page {
   height: 100vh;
   background-color: var(--grey-1);
+  padding: 10px;
 }
 .header {
   display: flex;
   justify-content: space-between;
   background-color: black;
-  padding: 10px;
+  padding: 12px;
+  margin: 10px;
+  border-radius: 10px;
 }
 .logout {
   cursor: pointer;
@@ -23,11 +26,11 @@ h1, h2, h3 {
 }
 .welcome-msg {
   text-align: center;
-  margin-top: 30%;
+  margin-top: 30vh;
 }
 .login-info {
   text-align: center;
-  margin-top: 30%;
+  margin-top: 30vh;
 }
 .positive-alert {
   position: absolute;
