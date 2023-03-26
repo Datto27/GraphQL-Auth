@@ -66,6 +66,10 @@ const Authentication = () => {
         setCookie("access", user.accessToken, 1/24);
         setCookie("refresh", user.refreshToken, 365);
         setUser({username:user.username, loginCount:user.loginCount});
+        // after successfull registration send websocket request to websocket.server that new user added
+        // (if users count become 4 backend will send message to every client)
+        
+        // navigate to home page
         navigate("/")
       })
       .catch((err) => {

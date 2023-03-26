@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Authenticaion from './pages/Authenticaion'
 import { UserProvider } from './contexts/user'
 import { getCookie, setCookie } from './utils/auth'
+import NotFound from './pages/NotFound'
+import SecureRoute from './routes/SecureRoute'
 
 
 
@@ -35,6 +37,8 @@ function App() {
           console.log(err)
         })
       }
+    } else {
+      setAuthorized(true)
     }
   }, [])
 
@@ -42,9 +46,9 @@ function App() {
     <UserProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<SecureRoute component={<Home />} />} />
           <Route path='/auth' element={<Authenticaion />} />
-          <Route path='/*' element={<Home />} />
+          <Route path='/*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

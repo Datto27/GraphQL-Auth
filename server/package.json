@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.ts",
     "start": "node build/index.js",
-    "start:websocket": "nodemon src/websocket.server.ts",
+    "dev:websocket": "nodemon src/websocket.server.ts",
     "build": "tsc -p ."
   },
   "keywords": [],
