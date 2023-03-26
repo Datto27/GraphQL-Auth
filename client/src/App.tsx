@@ -11,8 +11,6 @@ import NotFound from './pages/NotFound'
 import SecureRoute from './routes/SecureRoute'
 
 
-
-
 function App() {
   const [authorized, setAuthorized] = useState(false)
   // graphql

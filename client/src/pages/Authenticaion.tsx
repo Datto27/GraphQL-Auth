@@ -6,6 +6,7 @@ import PasswordInput from '../components/PasswordInput'
 import TextInput from '../components/TextInput'
 import { setCookie } from '../utils/auth'
 import { useUserContext } from '../contexts/user'
+import socket from '../config/socket'
 
 
 const Authentication = () => {
@@ -41,6 +42,11 @@ const Authentication = () => {
         setCookie("access", user.accessToken, 1/24);
         setCookie("refresh", user.refreshToken, 365);
         setUser(user);
+        // after successfull registration send websocket request to websocket.server that new user added
+        // (if users count become 4 backend will send message to every client)
+        socket.emit("registration")
+        // navigate to home page
+        // navigate("/")
         navigate("/")
       })
       .catch((err) => {
@@ -66,9 +72,6 @@ const Authentication = () => {
         setCookie("access", user.accessToken, 1/24);
         setCookie("refresh", user.refreshToken, 365);
         setUser({username:user.username, loginCount:user.loginCount});
-        // after successfull registration send websocket request to websocket.server that new user added
-        // (if users count become 4 backend will send message to every client)
-        
         // navigate to home page
         navigate("/")
       })

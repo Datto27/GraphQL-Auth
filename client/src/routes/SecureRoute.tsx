@@ -4,14 +4,15 @@ import { getCookie } from '../utils/auth'
 
 const SecureRoute = ({component}:any) => {
   const navigate = useNavigate()
+  const access = getCookie("access")
 
   useEffect(() => {
-    if(getCookie("access")) {
-      return component
-    }
-    return navigate("/auth", { replace:true })
-  }, [])
+    if(!access) navigate("/auth", { replace:true })
+  })
 
+  if(access) {
+    return component
+  }
   return <></>
 }
 

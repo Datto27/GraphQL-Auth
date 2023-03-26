@@ -8,6 +8,7 @@ const UserContext = createContext<any>({})
 const GET_USER = gql`
   query User($id: ID!) {
     user(id: $id) {
+      id
       username
       loginCount
     }
@@ -44,7 +45,7 @@ export const  UserProvider = (
       setUser(res.data.user)
     })
     .catch(err => {
-      console.error(err)
+      console.log(err)
     })
   }
 
