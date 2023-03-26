@@ -16,6 +16,10 @@ export const userTypeDefs = `#graphql
     refreshToken: String
   }
 
+  type RefreshTokenRes {
+    accessToken: String
+  }
+
   input UserInput {
     username: String!
     password: String!
@@ -30,5 +34,6 @@ export const userTypeDefs = `#graphql
   type Mutation {
     userRegister(user:UserInput): AuthRes
     userLogin(user:UserInput): AuthRes
+    refreshToken(token:String): RefreshTokenRes
   }
 `

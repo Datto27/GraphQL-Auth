@@ -4,7 +4,7 @@ import {  } from "@apollo/server"
 import { ApolloServerErrorCode } from '@apollo/server/errors';
 import bcrypt from "bcrypt"
 import { refreshTokens, users } from "../../db"
-import { generateAToken, generateRToken } from "../../utils/token";
+import { generateAToken, generateRToken, verifyToken } from "../../utils/token";
 
 export const userResolvers = {
   Query: {
@@ -81,6 +81,14 @@ export const userResolvers = {
             code: ApolloServerErrorCode.BAD_REQUEST
           }
         })
+      }
+    },
+     
+    refreshToken: async (parent, args) => {
+      // console.log(args)
+      if(refreshTokens.includes(args.token)) {
+        const {id} = verifyToken(args.token)
+        return { accessToken: generateAToken({id}) }
       }
     }
   }

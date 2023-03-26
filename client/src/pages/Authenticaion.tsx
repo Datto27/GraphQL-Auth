@@ -38,7 +38,7 @@ const Authentication = () => {
       .then((res) => {
         // console.log(res.data?.userRegister)
         const {userRegister:user} = res.data;
-        setCookie("access", user.accessToken, 1);
+        setCookie("access", user.accessToken, 1/24);
         setCookie("refresh", user.refreshToken, 365);
         setUser(user);
         navigate("/")
@@ -61,9 +61,9 @@ const Authentication = () => {
         }}
       })
       .then((res) => {
-        console.log(res.data.userLogin)
+        // console.log(res.data.userLogin)
         const {userLogin:user} = res.data
-        setCookie("access", user.accessToken, 1);
+        setCookie("access", user.accessToken, 1/24);
         setCookie("refresh", user.refreshToken, 365);
         setUser({username:user.username, loginCount:user.loginCount});
         navigate("/")

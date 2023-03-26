@@ -20,8 +20,8 @@ const Home = () => {
 
   useEffect(() => {
     const accessToken = getCookie("access")
-    const {id} = parseJWT(accessToken)
-    getCurrentUser(id)
+    const payload = parseJWT(accessToken)
+    if(payload) getCurrentUser(payload.id)
 
     // fetch other users
     fetchUsers()
