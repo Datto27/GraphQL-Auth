@@ -1,0 +1,12 @@
+
+
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: white;
+  background-color: var(--grey-1);
+  padding: 10px;
+}

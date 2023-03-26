@@ -12,13 +12,13 @@ import SecureRoute from './routes/SecureRoute'
 
 
 function App() {
-  const [authorized, setAuthorized] = useState(false)
   // graphql
   const [refreshAccessToken] = useMutation(REFRESH_TOKEN)
 
   useEffect(() => {
     const accessT = getCookie("access")
     if(!accessT) {
+      // if we don't have accessToken, but have refreshToken, generate new accessToken
       const refreshT = getCookie("refresh")
       if(refreshT) {
         refreshAccessToken({
@@ -35,8 +35,6 @@ function App() {
           console.log(err)
         })
       }
-    } else {
-      setAuthorized(true)
     }
   }, [])
 
