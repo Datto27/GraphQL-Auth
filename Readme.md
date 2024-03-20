@@ -13,7 +13,7 @@
 
 ## Backend (socket.io)
 ```bash
-/> cd client
+/> cd server
 /> npm run dev:websocket
 ```
 
